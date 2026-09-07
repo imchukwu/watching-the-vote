@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Yiaga Africa — Watching The Vote design system.
+ * Trust-forward, editorial, data-led. Brand logo green shades (#246A37 & #73BE44)
+ * with orange & red civic accents matching the official Watching The Vote logo.
+ */
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Merriweather", ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-critical: var(--critical);
+  --color-critical-foreground: var(--critical-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --shadow-elev-1: 0 1px 2px oklch(0.2 0.04 145 / 0.06), 0 1px 3px oklch(0.2 0.04 145 / 0.04);
+  --shadow-elev-2: 0 6px 16px oklch(0.2 0.04 145 / 0.08), 0 2px 4px oklch(0.2 0.04 145 / 0.04);
+  --shadow-elev-3: 0 20px 40px oklch(0.2 0.04 145 / 0.12);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.34 0.13 145) 0%, oklch(0.26 0.11 145) 55%, oklch(0.18 0.07 145) 100%);
+  --gradient-accent: linear-gradient(90deg, oklch(0.44 0.14 145), oklch(0.70 0.17 135));
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.22 0.02 145);
+
+  --surface: oklch(0.985 0.005 145);
+  --surface-2: oklch(0.965 0.008 145);
+  --ink: oklch(0.22 0.02 145);
+  --ink-muted: oklch(0.45 0.02 145);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 145);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 145);
+
+  /* Yiaga WTV Logo Green (#246A37) */
+  --primary: oklch(0.44 0.14 145);
+  --primary-foreground: oklch(0.99 0.005 145);
+  --primary-soft: oklch(0.94 0.04 145);
+
+  --secondary: oklch(0.965 0.008 145);
+  --secondary-foreground: oklch(0.22 0.02 145);
+  --muted: oklch(0.965 0.008 145);
+  --muted-foreground: oklch(0.48 0.02 145);
+  --accent: oklch(0.94 0.04 145);
+  --accent-foreground: oklch(0.35 0.14 145);
+
+  /* WTV Logo Vibrant Light Green (#73BE44) */
+  --success: oklch(0.70 0.17 135);
+  --success-foreground: oklch(0.99 0.005 135);
+  --warning: oklch(0.75 0.16 60);
+  --warning-foreground: oklch(0.2 0.05 60);
+  --critical: oklch(0.58 0.22 25);
+  --critical-foreground: oklch(0.99 0.005 25);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0.005 25);
+
+  --border: oklch(0.9 0.01 145);
+  --input: oklch(0.9 0.01 145);
+  --ring: oklch(0.44 0.14 145);
+
+  --chart-1: oklch(0.44 0.14 145); /* Logo Dark Green #246A37 */
+  --chart-2: oklch(0.70 0.17 135); /* Logo Light Green #73BE44 */
+  --chart-3: oklch(0.75 0.16 60);  /* Logo Orange #F7A21D */
+  --chart-4: oklch(0.58 0.22 25);  /* Logo Red #EA2127 */
+  --chart-5: oklch(0.55 0.08 145); /* Green Slate */
+
+  --sidebar: oklch(0.985 0.005 145);
+  --sidebar-foreground: oklch(0.22 0.02 145);
+  --sidebar-primary: oklch(0.44 0.14 145);
+  --sidebar-primary-foreground: oklch(0.99 0.005 145);
+  --sidebar-accent: oklch(0.94 0.04 145);
+  --sidebar-accent-foreground: oklch(0.35 0.14 145);
+  --sidebar-border: oklch(0.9 0.01 145);
+  --sidebar-ring: oklch(0.44 0.14 145);
+}
+
+.dark {
+  --background: oklch(0.16 0.02 145);
+  --foreground: oklch(0.97 0.005 145);
+  --surface: oklch(0.2 0.025 145);
+  --surface-2: oklch(0.24 0.03 145);
+  --ink: oklch(0.97 0.005 145);
+  --ink-muted: oklch(0.72 0.02 145);
+
+  --card: oklch(0.2 0.025 145);
+  --card-foreground: oklch(0.97 0.005 145);
+  --popover: oklch(0.2 0.025 145);
+  --popover-foreground: oklch(0.97 0.005 145);
+
+  --primary: oklch(0.65 0.15 140);
+  --primary-foreground: oklch(0.14 0.02 145);
+  --primary-soft: oklch(0.28 0.08 145);
+
+  --secondary: oklch(0.26 0.03 145);
+  --secondary-foreground: oklch(0.97 0.005 145);
+  --muted: oklch(0.26 0.03 145);
+  --muted-foreground: oklch(0.72 0.02 145);
+  --accent: oklch(0.28 0.08 145);
+  --accent-foreground: oklch(0.85 0.08 140);
+
+  --success: oklch(0.7 0.15 140);
+  --warning: oklch(0.78 0.16 60);
+  --critical: oklch(0.68 0.2 25);
+  --destructive: oklch(0.68 0.2 25);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.65 0.15 140);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, .font-display { font-family: var(--font-serif); letter-spacing: -0.01em; }
+}
+
+@utility container-wtv {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 80rem;
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+@utility surface-panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elev-1);
+}
+
+@utility hero-gradient {
+  background: var(--gradient-hero);
+}
+
+@utility grid-topo {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes wtv-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility marquee {
+  animation: wtv-marquee 40s linear infinite;
+}
+
+@keyframes wtv-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@utility fade-up {
+  animation: wtv-fade-up 0.6s ease-out both;
+}
+
+@keyframes wtv-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(1.5deg); }
+}
+
+@keyframes wtv-float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-1.5deg); }
+}
+
+@utility animate-float {
+  animation: wtv-float 6s ease-in-out infinite;
+}
+
+@utility animate-float-delayed {
+  animation: wtv-float-reverse 8s ease-in-out infinite 2s;
+}
+
+@utility animate-float-slow {
+  animation: wtv-float 10s ease-in-out infinite 4s;
+}
+
+@keyframes wtv-dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@utility animate-dash {
+  animation: wtv-dash 3s linear infinite;
+}
