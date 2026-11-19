@@ -1,0 +1,302 @@
+import type { EvidenceItem } from "@/components/site/EvidenceCard";
+
+export interface TelemetryStat {
+  id: string;
+  label: string;
+  value: string;
+  delta?: string;
+  unit?: string;
+  statusText: string;
+  statusCode: "normal" | "active" | "alert";
+  reticleCoord: string;
+}
+
+export const osintTelemetryStats: TelemetryStat[] = [
+  {
+    id: "total-reports",
+    label: "Total Field Reports",
+    value: "184,920",
+    delta: "+142 / hr",
+    unit: "TELEMETRY DISPATCHES",
+    statusText: "STREAMING LIVE",
+    statusCode: "active",
+    reticleCoord: "NG-NAT // Σ-RPT",
+  },
+  {
+    id: "pu-monitored",
+    label: "Polling Units Monitored",
+    value: "176,846",
+    delta: "98.4%",
+    unit: "SAMPLE QUOTA REACHED",
+    statusText: "FULL STRATIFICATION",
+    statusCode: "normal",
+    reticleCoord: "PU-COV // 36+FCT",
+  },
+  {
+    id: "verification-rate",
+    label: "Verification Rate",
+    value: "99.82%",
+    delta: "±1.15% MARGIN",
+    unit: "STATISTICAL CONFIDENCE",
+    statusText: "PRVT VERIFIED",
+    statusCode: "normal",
+    reticleCoord: "PRVT // CI:99%",
+  },
+  {
+    id: "active-observers",
+    label: "Accredited Field Corps",
+    value: "8,500+",
+    delta: "100% GEOFENCED",
+    unit: "BIOMETRICALLY LINKED",
+    statusText: "DEPLOYED IN FIELD",
+    statusCode: "active",
+    reticleCoord: "CORPS // ACTIVE",
+  },
+  {
+    id: "flagged-anomalies",
+    label: "Incidents In Triage",
+    value: "14",
+    delta: "8 RESOLVED TODAY",
+    unit: "ESCALATION QUEUE",
+    statusText: "PRIORITY AUDIT",
+    statusCode: "alert",
+    reticleCoord: "TRIAGE // ESCALATED",
+  },
+];
+
+export const liveTelemetryTicker = [
+  {
+    id: "tick-1",
+    time: "12:12:08 WAT",
+    location: "KADUNA NORTH / PU 019-04-01-008",
+    message: "BVAS Biometric Audit match: 98.6% · EC8A seal verified",
+    type: "verified",
+  },
+  {
+    id: "tick-2",
+    time: "12:11:42 WAT",
+    location: "IKEJA / PU 024-08-02-015",
+    message: "Form EC8A photograph ingested · SHA-256 hash match confirmed",
+    type: "verified",
+  },
+  {
+    id: "tick-3",
+    time: "12:10:19 WAT",
+    location: "PORT HARCOURT / PU 032-11-04-002",
+    message: "Late arrival of voting materials logged (78 min delay)",
+    type: "pending",
+  },
+  {
+    id: "tick-4",
+    time: "12:08:55 WAT",
+    location: "KANO MUNICIPAL / PU 014-02-05-003",
+    message: "Turnout sample telemetry synced: 68.4% (Confidence ±1.2%)",
+    type: "verified",
+  },
+  {
+    id: "tick-5",
+    time: "12:07:31 WAT",
+    location: "BENIN CITY / PU 012-05-03-011",
+    message: "Discrepancy flagged: BVAS recount requested by Field Supervisor",
+    type: "disputed",
+  },
+];
+
+export const evidenceDossierItems: EvidenceItem[] = [
+  {
+    id: "WTV-2027-KD-8841",
+    secHash: "0x8f2ac5170d4948a9319e7102b48991a0c31be942f7c0018a1a382c4990d1bf",
+    status: "verified",
+    title: "Form EC8A Official Result Sheet Cryptographic Ingestion & Biometric Cross-Match",
+    summary:
+      "Accredited citizen observer uploaded high-resolution photographic proof of INEC Form EC8A upon poll closing. Mathematical sum of votes cast reconciles with BVAS accreditation counter within zero margin.",
+    pollingUnit: "PU: 019/04/01/008 — Government College, Kawo Ward",
+    lga: "Kaduna North",
+    state: "Kaduna",
+    coordinates: "10.5105° N, 7.4165° E",
+    timestamp: "11:42:09 WAT",
+    observerToken: "OBS-8412 [ACCREDITED CITIZEN CORPS]",
+    category: "Results Verification",
+    auditSteps: [
+      {
+        step: 1,
+        title: "Field Observer Ingestion",
+        actor: "Observer #8412 (Biometric Token Valid)",
+        timestamp: "11:42:09 WAT",
+        status: "completed",
+        details: "Form EC8A image captured via encrypted WTV Mobile terminal. GPS geofence confirmed within 8m of registered PU perimeter.",
+      },
+      {
+        step: 2,
+        title: "Automated Telemetry Check",
+        actor: "PRVT Pipeline Bot v4.2",
+        timestamp: "11:42:31 WAT",
+        status: "completed",
+        details: "OCR extraction of presidential vote tally completed. Mathematical reconciliation matches BVAS accreditation log exactly (412 vs 412).",
+      },
+      {
+        step: 3,
+        title: "Situation Room Analyst Sign-off",
+        actor: "Analyst S. Danjuma (Senior Desk Officer)",
+        timestamp: "11:46:15 WAT",
+        status: "completed",
+        details: "Independent call-back verification to field monitor confirmed party agents' signatures are present on original form.",
+      },
+      {
+        step: 4,
+        title: "Cryptographic Ledger Sealing",
+        actor: "WTV Merkle Engine",
+        timestamp: "11:46:58 WAT",
+        status: "completed",
+        details: "SHA-256 digest sealed in public immutable log. Leaf ID: #KD-08-ROOT-9912. Tamper-evident proof anchored to public transparency feed.",
+      },
+    ],
+  },
+  {
+    id: "WTV-2027-LA-4920",
+    secHash: "0x3e71ba980c65df191834160acfa98319f0918734125bca881723491823901b",
+    status: "pending",
+    title: "Delayed Opening & Voting Material Delivery Discrepancy",
+    summary:
+      "Field observer recorded official arrival of INEC presiding officer at 10:14 AM (scheduled: 08:30 AM). Observer logged voter queue of 310 citizens awaiting accreditation.",
+    pollingUnit: "PU: 024/08/02-015 — Methodist Primary School, Ikeja GRA",
+    lga: "Ikeja",
+    state: "Lagos",
+    coordinates: "06.5921° N, 03.3562° E",
+    timestamp: "10:18:44 WAT",
+    observerToken: "OBS-3319 [FIELD SAMPLER]",
+    category: "Process Logistics",
+    auditSteps: [
+      {
+        step: 1,
+        title: "Field Observer Signal Dispatched",
+        actor: "Observer #3319",
+        timestamp: "10:18:44 WAT",
+        status: "completed",
+        details: "Incident category 'Late Material Delivery' submitted with photo of sealed ballot boxes arriving via police escort.",
+      },
+      {
+        step: 2,
+        title: "Cross-Reference Against Ward Pattern",
+        actor: "Logistics Telemetry Bot",
+        timestamp: "10:19:10 WAT",
+        status: "completed",
+        details: "Detected 4 contiguous PUs in Ikeja GRA reporting similar transit delays due to early morning rainfall.",
+      },
+      {
+        step: 3,
+        title: "Situation Room Escalation Call",
+        actor: "Desk Officer F. Adeyemi",
+        timestamp: "10:24:00 WAT",
+        status: "in_progress",
+        details: "Direct liaison with Lagos State INEC REC initiated to ensure polling hours are extended by 104 minutes to compensate.",
+      },
+      {
+        step: 4,
+        title: "Resolution Verification",
+        actor: "Pending Supervisor Confirmation",
+        timestamp: "Awaiting Update",
+        status: "in_progress",
+        details: "Observer tracking accreditation commencement pace. Full audit trail will seal once polls close and time extension is observed.",
+      },
+    ],
+  },
+  {
+    id: "WTV-2027-RV-1104",
+    secHash: "0xc847a610993ef10492817c88019aa51bce7618992019485123985a10992384a",
+    status: "disputed",
+    title: "BVAS Accreditation Discrepancy Flagged Against Manual Tally",
+    summary:
+      "Citizen observer reported that presiding officer attempted to record 52 votes without corresponding digital BVAS biometric verification timestamps. Field supervisor dispatched to station.",
+    pollingUnit: "PU: 032/11/04/002 — Community Hall, Obio-Akpor",
+    lga: "Obio-Akpor",
+    state: "Rivers",
+    coordinates: "04.8396° N, 06.9854° E",
+    timestamp: "11:58:30 WAT",
+    observerToken: "OBS-9014 [PRVT MOBILE SENTINEL]",
+    category: "Integrity Anomaly",
+    auditSteps: [
+      {
+        step: 1,
+        title: "Anomaly Alert Triggered",
+        actor: "Observer #9014",
+        timestamp: "11:58:30 WAT",
+        status: "completed",
+        details: "Observer flagged mismatch between manual voter register count and BVAS digital display screen.",
+      },
+      {
+        step: 2,
+        title: "Automated Statistical Anomaly Detection",
+        actor: "WTV Anomaly Engine",
+        timestamp: "11:58:55 WAT",
+        status: "completed",
+        details: "Confidence score dropped below 85% threshold. Anomaly escalated as Level 1 Priority Red Flag.",
+      },
+      {
+        step: 3,
+        title: "Roving Field Supervisor Deployment",
+        actor: "Rivers State Field Supervisor K. Okon",
+        timestamp: "12:05:12 WAT",
+        status: "flagged",
+        details: "Supervisor arrived on site with accredited press monitors. INEC presiding officer instructed to recount and reboot device.",
+      },
+      {
+        step: 4,
+        title: "Legal & Forensic Documentation",
+        actor: "Situation Room Legal Cell",
+        timestamp: "12:10:45 WAT",
+        status: "in_progress",
+        details: "Incident report filed with INEC Electoral Operations Centre and civil society integrity coalition. Formal docket #RV-2027-D-09.",
+      },
+    ],
+  },
+  {
+    id: "WTV-2027-KN-3302",
+    secHash: "0x1928fa81729bca019283741829374019283741092837410928374109283741a",
+    status: "verified",
+    title: "PRVT Representative Random Sample Verification Completed",
+    summary:
+      "All pre-election setup checklists (secret voting booth location, ballot box security seals, presence of accredited party agents) verified and transmitted via SMS-gateway fallback.",
+    pollingUnit: "PU: 014/02/05/003 — Gidan Makama Primary, Kano Municipal",
+    lga: "Kano Municipal",
+    state: "Kano",
+    coordinates: "11.9964° N, 08.5167° E",
+    timestamp: "09:30:15 WAT",
+    observerToken: "OBS-6119 [PRVT RANDOM SAMPLE CLUSTER]",
+    category: "Methodology Sampling",
+    auditSteps: [
+      {
+        step: 1,
+        title: "Pre-Opening Checklist Transmitted",
+        actor: "Observer #6119",
+        timestamp: "09:30:15 WAT",
+        status: "completed",
+        details: "Observer confirmed all 4 key electoral integrity conditions met prior to commencement of voting.",
+      },
+      {
+        step: 2,
+        title: "PRVT Sample Stratification Match",
+        actor: "Statistical Verification Bot",
+        timestamp: "09:30:40 WAT",
+        status: "completed",
+        details: "Cluster sample weight assigned: 1.042. Result integrated into national projection model with zero variance.",
+      },
+      {
+        step: 3,
+        title: "Digital Fingerprint Verification",
+        actor: "Abuja National Situation Room",
+        timestamp: "09:35:10 WAT",
+        status: "completed",
+        details: "Signal acknowledged by Northern Regional Observation Coordinator.",
+      },
+      {
+        step: 4,
+        title: "Ledger Record Published",
+        actor: "Public PRVT Node",
+        timestamp: "09:36:00 WAT",
+        status: "completed",
+        details: "Archived with Merkle proof #KN-SAMPLE-2027-04.",
+      },
+    ],
+  },
+];

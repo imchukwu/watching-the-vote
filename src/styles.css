@@ -11,7 +11,9 @@
  */
 
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: "Merriweather", ui-serif, Georgia, serif;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -51,6 +53,10 @@
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
 
+  --color-amber-archival: var(--amber-archival);
+  --color-crimson-civic: var(--crimson-civic);
+  --color-emerald-osint: var(--emerald-osint);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -66,95 +72,107 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.375rem;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.22 0.02 145);
+  /* Editorial off-white crisp archival background */
+  --background: oklch(0.985 0.003 95);
+  --foreground: oklch(0.18 0.02 240);
 
-  --surface: oklch(0.985 0.005 145);
-  --surface-2: oklch(0.965 0.008 145);
-  --ink: oklch(0.22 0.02 145);
-  --ink-muted: oklch(0.45 0.02 145);
+  --surface: oklch(0.97 0.005 95);
+  --surface-2: oklch(0.95 0.007 95);
+  --ink: oklch(0.18 0.02 240);
+  --ink-muted: oklch(0.44 0.02 240);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.02 145);
+  --card-foreground: oklch(0.18 0.02 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.02 145);
+  --popover-foreground: oklch(0.18 0.02 240);
 
   /* Yiaga WTV Logo Green (#246A37) */
   --primary: oklch(0.44 0.14 145);
   --primary-foreground: oklch(0.99 0.005 145);
   --primary-soft: oklch(0.94 0.04 145);
 
-  --secondary: oklch(0.965 0.008 145);
-  --secondary-foreground: oklch(0.22 0.02 145);
-  --muted: oklch(0.965 0.008 145);
-  --muted-foreground: oklch(0.48 0.02 145);
-  --accent: oklch(0.94 0.04 145);
+  --secondary: oklch(0.96 0.006 95);
+  --secondary-foreground: oklch(0.2 0.02 240);
+  --muted: oklch(0.95 0.006 95);
+  --muted-foreground: oklch(0.46 0.02 240);
+  --accent: oklch(0.93 0.03 145);
   --accent-foreground: oklch(0.35 0.14 145);
 
-  /* WTV Logo Vibrant Light Green (#73BE44) */
-  --success: oklch(0.70 0.17 135);
+  /* OSINT & Investigative Accents */
+  --amber-archival: oklch(0.74 0.17 65); /* #D97706 Archival Amber */
+  --crimson-civic: oklch(0.55 0.23 25);   /* #E11D48 Civic Crimson */
+  --emerald-osint: oklch(0.62 0.18 145);  /* #059669 Verified Emerald */
+
+  /* Status Colors */
+  --success: oklch(0.68 0.17 140);
   --success-foreground: oklch(0.99 0.005 135);
-  --warning: oklch(0.75 0.16 60);
+  --warning: oklch(0.74 0.17 65);
   --warning-foreground: oklch(0.2 0.05 60);
-  --critical: oklch(0.58 0.22 25);
+  --critical: oklch(0.55 0.23 25);
   --critical-foreground: oklch(0.99 0.005 25);
-  --destructive: oklch(0.58 0.22 25);
+  --destructive: oklch(0.55 0.23 25);
   --destructive-foreground: oklch(0.99 0.005 25);
 
-  --border: oklch(0.9 0.01 145);
-  --input: oklch(0.9 0.01 145);
+  /* Crisp 1px Cartographic Hairline Border */
+  --border: oklch(0.88 0.008 95);
+  --input: oklch(0.88 0.008 95);
   --ring: oklch(0.44 0.14 145);
 
-  --chart-1: oklch(0.44 0.14 145); /* Logo Dark Green #246A37 */
-  --chart-2: oklch(0.70 0.17 135); /* Logo Light Green #73BE44 */
-  --chart-3: oklch(0.75 0.16 60);  /* Logo Orange #F7A21D */
-  --chart-4: oklch(0.58 0.22 25);  /* Logo Red #EA2127 */
-  --chart-5: oklch(0.55 0.08 145); /* Green Slate */
+  --chart-1: oklch(0.44 0.14 145); /* Dark Green #246A37 */
+  --chart-2: oklch(0.68 0.17 140); /* Light Green #73BE44 */
+  --chart-3: oklch(0.74 0.17 65);  /* Amber #D97706 */
+  --chart-4: oklch(0.55 0.23 25);  /* Crimson #E11D48 */
+  --chart-5: oklch(0.55 0.08 240); /* Cobalt Slate */
 
-  --sidebar: oklch(0.985 0.005 145);
-  --sidebar-foreground: oklch(0.22 0.02 145);
+  --sidebar: oklch(0.97 0.005 95);
+  --sidebar-foreground: oklch(0.18 0.02 240);
   --sidebar-primary: oklch(0.44 0.14 145);
   --sidebar-primary-foreground: oklch(0.99 0.005 145);
-  --sidebar-accent: oklch(0.94 0.04 145);
+  --sidebar-accent: oklch(0.93 0.03 145);
   --sidebar-accent-foreground: oklch(0.35 0.14 145);
-  --sidebar-border: oklch(0.9 0.01 145);
+  --sidebar-border: oklch(0.88 0.008 95);
   --sidebar-ring: oklch(0.44 0.14 145);
 }
 
 .dark {
-  --background: oklch(0.16 0.02 145);
-  --foreground: oklch(0.97 0.005 145);
-  --surface: oklch(0.2 0.025 145);
-  --surface-2: oklch(0.24 0.03 145);
-  --ink: oklch(0.97 0.005 145);
-  --ink-muted: oklch(0.72 0.02 145);
+  /* Deep Charcoal OSINT Terminal */
+  --background: oklch(0.13 0.015 245);
+  --foreground: oklch(0.96 0.005 95);
+  --surface: oklch(0.16 0.018 245);
+  --surface-2: oklch(0.19 0.02 245);
+  --ink: oklch(0.96 0.005 95);
+  --ink-muted: oklch(0.7 0.02 245);
 
-  --card: oklch(0.2 0.025 145);
-  --card-foreground: oklch(0.97 0.005 145);
-  --popover: oklch(0.2 0.025 145);
-  --popover-foreground: oklch(0.97 0.005 145);
+  --card: oklch(0.16 0.018 245);
+  --card-foreground: oklch(0.96 0.005 95);
+  --popover: oklch(0.16 0.018 245);
+  --popover-foreground: oklch(0.96 0.005 95);
 
-  --primary: oklch(0.65 0.15 140);
-  --primary-foreground: oklch(0.14 0.02 145);
-  --primary-soft: oklch(0.28 0.08 145);
+  --primary: oklch(0.68 0.16 142);
+  --primary-foreground: oklch(0.12 0.015 245);
+  --primary-soft: oklch(0.24 0.06 145);
 
-  --secondary: oklch(0.26 0.03 145);
-  --secondary-foreground: oklch(0.97 0.005 145);
-  --muted: oklch(0.26 0.03 145);
-  --muted-foreground: oklch(0.72 0.02 145);
-  --accent: oklch(0.28 0.08 145);
-  --accent-foreground: oklch(0.85 0.08 140);
+  --secondary: oklch(0.2 0.02 245);
+  --secondary-foreground: oklch(0.96 0.005 95);
+  --muted: oklch(0.2 0.02 245);
+  --muted-foreground: oklch(0.68 0.02 245);
+  --accent: oklch(0.24 0.06 145);
+  --accent-foreground: oklch(0.88 0.08 140);
 
-  --success: oklch(0.7 0.15 140);
-  --warning: oklch(0.78 0.16 60);
-  --critical: oklch(0.68 0.2 25);
-  --destructive: oklch(0.68 0.2 25);
+  --amber-archival: oklch(0.78 0.17 65);
+  --crimson-civic: oklch(0.65 0.22 25);
+  --emerald-osint: oklch(0.7 0.16 140);
 
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.65 0.15 140);
+  --success: oklch(0.7 0.16 140);
+  --warning: oklch(0.78 0.17 65);
+  --critical: oklch(0.65 0.22 25);
+  --destructive: oklch(0.65 0.22 25);
+
+  --border: oklch(0.25 0.015 245);
+  --input: oklch(0.25 0.015 245);
+  --ring: oklch(0.68 0.16 142);
 }
 
 @layer base {
@@ -166,7 +184,9 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, .font-display { font-family: var(--font-serif); letter-spacing: -0.01em; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  .font-display { font-family: var(--font-display); }
+  .font-mono { font-family: var(--font-mono); }
 }
 
 @utility container-wtv {
@@ -250,3 +270,95 @@
 @utility animate-dash {
   animation: wtv-dash 3s linear infinite;
 }
+
+@utility sec-hash {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@utility telemetry-stat {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.osint-grid {
+  background-image:
+    linear-gradient(to right, oklch(0 0 0 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0 0 0 / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .osint-grid {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.osint-grid-subtle {
+  background-image:
+    linear-gradient(to right, oklch(0.5 0.02 240 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.5 0.02 240 / 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.osint-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.dossier-artifact {
+  position: relative;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dossier-artifact:hover {
+  border-color: oklch(0.6 0.05 145 / 0.5);
+  box-shadow: 0 4px 20px -2px oklch(0 0 0 / 0.08);
+}
+
+/* Precision corner crosshair reticles */
+.corner-crosshairs {
+  position: relative;
+}
+
+.corner-crosshairs::before,
+.corner-crosshairs::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.corner-crosshairs::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--color-primary);
+  border-left: 2px solid var(--color-primary);
+}
+
+.corner-crosshairs::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--color-primary);
+  border-right: 2px solid var(--color-primary);
+}
+
