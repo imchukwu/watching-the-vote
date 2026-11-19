@@ -27,8 +27,8 @@ export function AboutWtvSection() {
 
               <div className="relative overflow-hidden rounded-2xl border-2 border-border bg-card shadow-elev-2">
                 <img
-                  src="/samson.jpg"
-                  alt="Samson Itodo, Executive Director, Yiaga Africa"
+                  src="/cynthia-o.jpg"
+                  alt="Cynthia Mbamalu , Director of Programs, Yiaga Africa"
                   className="w-full object-cover aspect-[4/5] object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
@@ -40,10 +40,10 @@ export function AboutWtvSection() {
                     <span>Yiaga Africa Leadership</span>
                   </div>
                   <h3 className="mt-1 font-display text-xl font-bold text-white">
-                    Samson Itodo
+                    Cynthia Mbamalu
                   </h3>
                   <p className="text-xs text-white/80 font-mono mt-0.5">
-                    Executive Director, Yiaga Africa · Convener, Watching The Vote
+                    Director of Programs · Yiaga Africa · Convener, Watching The Vote
                   </p>
                 </div>
               </div>
@@ -79,7 +79,7 @@ export function AboutWtvSection() {
                 "Watching The Vote was founded on a simple, uncompromising truth: citizens cannot defend what they cannot verify. By arming everyday Nigerians with scientific observation tools, we transform democracy from a spectator sport into an active civic safeguard."
               </p>
               <div className="mt-3 font-mono text-xs text-primary font-bold">
-                — Samson Itodo, Convener, Watching The Vote
+                — Cynthia Mbamalu, Convener, Watching The Vote
               </div>
             </div>
 
